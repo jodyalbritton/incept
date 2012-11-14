@@ -1,9 +1,12 @@
-
+    <% if @todo_list.any? %>
 	<% @todo_list.each do |todo| %>
 		   
 		    <p>
 		    <strong><%= todo.name %></strong> <%= link_to "Edit", edit_task_path(todo) %>
 			<%= render "task_completions/new", :task => todo%>
 		
+	<% end %>
+	<% else %>
+	<p>You do not have any active tasks. You can <%= link_to "Browse Subjects", topics_path %> or create a recurring task by clicking +</p>
 	<% end %>
 	
