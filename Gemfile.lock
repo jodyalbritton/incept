@@ -221,6 +221,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   jquery-ui-rails
+  less
   less-rails
   mysql2
   rails (= 3.2.8)
