@@ -11,14 +11,15 @@ gem 'mysql2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'therubyracer', :platform => :ruby
+  
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'less-rails'
   gem 'jquery-ui-rails'
   
 
 end
+gem 'therubyracer'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'turbolinks'
 gem 'jquery-rails'
