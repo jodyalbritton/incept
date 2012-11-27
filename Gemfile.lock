@@ -41,6 +41,7 @@ GEM
       rails (~> 3.0)
     acts_as_follower (0.1.1)
     addressable (2.3.2)
+    ambry (0.3.1)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -115,6 +116,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    merit (1.1.0)
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.3.7)
@@ -211,6 +213,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   acts_as_follower
+  ambry
   cancan
   capybara
   client_side_validations
@@ -223,6 +226,7 @@ DEPENDENCIES
   jquery-ui-rails
   less
   less-rails
+  merit
   mysql2
   rails (= 3.2.8)
   rolify

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @employment.user_id %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @employment.school_id %>
+</p>
+
+<p>
+  <b>Enrolled from:</b>
+  <%= @employment.enrolled_from %>
+</p>
+
+<p>
+  <b>Enrolled to:</b>
+  <%= @employment.enrolled_to %>
+</p>
+
+<p>
+  <b>Major:</b>
+  <%= @employment.major %>
+</p>
+
+<p>
+  <b>Course of study:</b>
+  <%= @employment.course_of_study %>
+</p>
+
+<p>
+  <b>Credit hours:</b>
+  <%= @employment.credit_hours %>
+</p>
+
+
+<%= link_to 'Edit', edit_employment_path(@employment) %> |
+<%= link_to 'Back', employments_path %>

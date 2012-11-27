@@ -1,4 +1,21 @@
-
+<div class="row-fluid">
+	<div class="span3 well">
+		<h3><%= @user.username %></h3>
+		<h4><%= @user.points %></h4>
+		<ul class="thumbnails">
+			<% @user.badges.each do |badge| %>
+				<li class="thumbnail"><%= badge.name%></li>
+			<% end %>
+		</ul>
+		
+	</div>
+	<div class="span6 body">
+		<h4>Recent Education</h4>
+		
+		<h4>Recent Employment</h4>
+	</div>
+	<div class="span3 r_sidebar">
+</div>
 <% @tasks_by_name.sort.each do |name, tasks| %>
 <table class="table table-bordered table-striped">
   <thead>

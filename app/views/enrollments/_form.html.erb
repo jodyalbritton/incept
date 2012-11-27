@@ -1,0 +1,17 @@
+<%= simple_form_for(@enrollment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :school_id %>
+    <%= f.input :enrolled_from %>
+    <%= f.input :enrolled_to %>
+    <%= f.input :major %>
+    <%= f.input :course_of_study %>
+    <%= f.input :credit_hours %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,6 +1,14 @@
 Incept::Application.routes.draw do
   
 
+  resources :employments
+
+  resources :employers
+
+  resources :enrollments
+
+  resources :schools
+
   resources :task_completions
 
   get "tags/index"
@@ -20,9 +28,9 @@ Incept::Application.routes.draw do
   
   
   
-  devise_for :users
+
   
-  
+  devise_for :users, :controllers => { :registrations => 'registrations' }
   authenticated :user do
   root :to => 'dashboard#index'
   end
@@ -90,5 +98,6 @@ Incept::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'welcome#index'
+  
   resources :users, :only => [:show], :path => '/'
 end

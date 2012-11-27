@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113053030) do
+ActiveRecord::Schema.define(:version => 20121126143521) do
+
+  create_table "badges_sashes", :force => true do |t|
+    t.integer  "badge_id"
+    t.integer  "sash_id"
+    t.boolean  "notified_user", :default => false
+    t.datetime "created_at"
+  end
+
+  add_index "badges_sashes", ["badge_id", "sash_id"], :name => "index_badges_sashes_on_badge_id_and_sash_id"
+  add_index "badges_sashes", ["badge_id"], :name => "index_badges_sashes_on_badge_id"
+  add_index "badges_sashes", ["sash_id"], :name => "index_badges_sashes_on_sash_id"
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -26,6 +37,40 @@ ActiveRecord::Schema.define(:version => 20121113053030) do
     t.string   "video_thumbnails"
     t.string   "series"
     t.integer  "topic_id"
+  end
+
+  create_table "employers", :force => true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "employments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "employer_id"
+    t.date     "employed_from"
+    t.date     "employed_to"
+    t.string   "title"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "enrollments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "school_id"
+    t.date     "enrolled_from"
+    t.date     "enrolled_to"
+    t.string   "major"
+    t.string   "course_of_study"
+    t.integer  "credit_hours"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "follows", :force => true do |t|
@@ -48,6 +93,31 @@ ActiveRecord::Schema.define(:version => 20121113053030) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "merit_actions", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "action_method"
+    t.integer  "action_value"
+    t.boolean  "had_errors"
+    t.string   "target_model"
+    t.integer  "target_id"
+    t.boolean  "processed",     :default => false
+    t.string   "log"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "merit_score_points", :force => true do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", :default => 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", :force => true do |t|
+    t.integer "sash_id"
+    t.string  "category", :default => "default"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -58,6 +128,22 @@ ActiveRecord::Schema.define(:version => 20121113053030) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sashes", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -138,6 +224,10 @@ ActiveRecord::Schema.define(:version => 20121113053030) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "privacy"
+    t.text     "about"
+    t.string   "title"
+    t.integer  "sash_id"
+    t.integer  "level",                  :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

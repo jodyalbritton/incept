@@ -1,0 +1,35 @@
+<h1>Listing enrollments</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>School</th>
+    <th>Enrolled from</th>
+    <th>Enrolled to</th>
+    <th>Major</th>
+    <th>Course of study</th>
+    <th>Credit hours</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @enrollments.each do |enrollment| %>
+  <tr>
+    <td><%= enrollment.user_id %></td>
+    <td><%= enrollment.school_id %></td>
+    <td><%= enrollment.enrolled_from %></td>
+    <td><%= enrollment.enrolled_to %></td>
+    <td><%= enrollment.major %></td>
+    <td><%= enrollment.course_of_study %></td>
+    <td><%= enrollment.credit_hours %></td>
+    <td><%= link_to 'Show', enrollment %></td>
+    <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
+    <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Enrollment', new_enrollment_path %>
