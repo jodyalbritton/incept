@@ -34,8 +34,7 @@ gem 'acts-as-taggable-on'
 gem 'client_side_validations'
 gem 'acts_as_follower'
 gem 'factory_girl_rails'
-gem 'merit'
-gem 'ambry'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
